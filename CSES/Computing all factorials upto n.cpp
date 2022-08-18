@@ -81,12 +81,15 @@ void solve(){
     //Why it has to be me
     int n;
     cin >> n;
-   	int ans = 1;
-    for(int i = 0 ; i < n ; i++){
-    	ans = ans * 2;
-    	ans %= M;
+
+    ll fact[n + 1];
+    fact[0] = fact[1] = 1;
+    for(int i = 2 ; i <= n ; i++){
+    	fact[i] = (fact[i - 1] * i) % M;
     }
-    cout << ans << endl;
+    for(int i = 0 ; i <= n ; i++){
+    	cout << fact[i] << endl;
+    }
 }
 
 int main(){
@@ -95,7 +98,7 @@ int main(){
     init_code();
 
     int t = 1;
-    //cin >> t;
+   // cin >> t;
     while(t--){
         solve();
     }

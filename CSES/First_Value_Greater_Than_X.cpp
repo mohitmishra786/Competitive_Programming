@@ -77,25 +77,42 @@ void use_this_for_prime_generator(){
 }
 
 
-void solve(){
-    //Why it has to be me
-    int n;
-    cin >> n;
-   	int ans = 1;
-    for(int i = 0 ; i < n ; i++){
-    	ans = ans * 2;
-    	ans %= M;
-    }
-    cout << ans << endl;
+
+int greater_value(int arr[], int n , int l , int r, int target){
+	int ans = -1;
+	while(l <= r){
+		int mid = l + (r - l)/2;
+		if(arr[mid] >= target){
+			ans = mid;
+			r = mid - 1;
+		}
+		else{
+			l = mid + 1;
+		}
+	}
+	return ans;
 }
 
+
+void solve(){
+    //Why it has to be me
+    int n, target;
+    cin >> n >> target;
+    int arr[n];
+    for(int i = 0 ; i < n ; i++){
+        cin >> arr[i];
+    }
+    int ans = greater_value(arr , n , 0, n - 1, target);
+    cout << ans << endl;
+
+}
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);cout.tie(0);
     init_code();
 
     int t = 1;
-    //cin >> t;
+   // cin >> t;
     while(t--){
         solve();
     }

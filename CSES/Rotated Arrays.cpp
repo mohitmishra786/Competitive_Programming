@@ -76,16 +76,41 @@ void use_this_for_prime_generator(){
     }
 }
 
+int rotated(int arr[], int n, int l , int r){
+	// if array is not rotated
+	if(r < l) return arr[0];  
+
+	// if only last element is left
+	if(r == l) return arr[l];
+
+	// taking mid value
+	int mid = l + (r - l)/2;
+
+	// checking if mid + 1 is the minimum element
+	if(arr[mid + 1] < arr[mid] && mid < r){
+		return arr[mid + 1];
+	}
+
+	// checking if mid itself is the minimum element
+	if(mid > l and arr[mid] < arr[mid - 1]) return arr[mid];
+
+	// putting cases whether we got left or right half
+	if(arr[r] > arr[mid]){
+		return rotated(arr, n, l ,mid - 1);
+	}
+	return rotated(arr , n , mid + 1 , r);
+}
+
 
 void solve(){
     //Why it has to be me
     int n;
     cin >> n;
-   	int ans = 1;
+    int arr[n];
     for(int i = 0 ; i < n ; i++){
-    	ans = ans * 2;
-    	ans %= M;
+        cin >> arr[i];
     }
+    int ans = rotated(arr , n , 0, n - 1);
     cout << ans << endl;
 }
 

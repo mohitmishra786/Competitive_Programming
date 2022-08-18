@@ -76,17 +76,40 @@ void use_this_for_prime_generator(){
     }
 }
 
+ll mpow(int a , int b){
+	ll ans = 1;
+	while(b > 0){
+		if(b & 1) ans *= a;
+		a *= a;
+		b /= 2;
+	}
+
+	return ans % M;
+}
 
 void solve(){
     //Why it has to be me
-    int n;
+    
+    ll n;
     cin >> n;
-   	int ans = 1;
-    for(int i = 0 ; i < n ; i++){
-    	ans = ans * 2;
-    	ans %= M;
+    ll fact[n + 1];
+    fact[1] = fact[0] = 1;
+    for(int i = 2 ; i <= n ; i++){
+    	fact[i] = (fact[i - 1] * i) % M;
     }
-    cout << ans << endl;
+
+//  (fact[n - 1])^(-1) = n * (fact[n])^(-1)
+
+    ll ifact[n + 1];
+    ifact[n] = mpow(fact[n] , (M - 2));
+    for(int i = n - 1 ; i >= 0 ; i--){
+    	ifact[i] = ((i + 1) * ifact[i + 1]) % M;
+    }
+
+    for(int i = 0 ; i <= n ; i++){
+    	cout << fact[i] << " " << ifact[i] << endl;
+    }
+
 }
 
 int main(){
@@ -95,7 +118,7 @@ int main(){
     init_code();
 
     int t = 1;
-    //cin >> t;
+   // cin >> t;
     while(t--){
         solve();
     }

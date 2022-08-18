@@ -76,16 +76,31 @@ void use_this_for_prime_generator(){
     }
 }
 
+int peak(int arr[] , int n, int l , int r){
+	if(l == r){
+		return arr[l];
+	}
+
+	int mid = l + (r - l)/2;
+	if(arr[mid] > arr[mid + 1] and arr[mid] > arr[mid - 1]){
+		return arr[mid];
+	}
+	if(arr[mid] < arr[mid + 1]){
+		return peak(arr , n , mid + 1 , r);
+	}
+	return peak(arr , n , l , mid - 1);
+
+}
 
 void solve(){
     //Why it has to be me
     int n;
     cin >> n;
-   	int ans = 1;
+    int arr[n];
     for(int i = 0 ; i < n ; i++){
-    	ans = ans * 2;
-    	ans %= M;
+        cin >> arr[i];
     }
+    int ans = peak(arr , n , 0, n - 1);
     cout << ans << endl;
 }
 

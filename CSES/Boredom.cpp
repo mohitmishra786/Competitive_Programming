@@ -81,12 +81,24 @@ void solve(){
     //Why it has to be me
     int n;
     cin >> n;
-   	int ans = 1;
+    int maxm = -1;
+    vector<int> arr(n , 0);
+
     for(int i = 0 ; i < n ; i++){
-    	ans = ans * 2;
-    	ans %= M;
+        int x;
+        cin >> x;
+        arr[x]++;
+        maxm = max(maxm , x)
     }
-    cout << ans << endl;
+
+    vector<int> ans(n,0);
+    ans[0] = 0;
+    ans[1] = arr[1];
+    for(int i = 2 ; i < n ; i++){
+        ans[i] = max(ans[i - 1] , ans[i - 2] + arr[i]* i);
+    }
+
+    cout << ans[maxm] << endl;
 }
 
 int main(){

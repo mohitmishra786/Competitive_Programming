@@ -76,23 +76,23 @@ void use_this_for_prime_generator(){
     }
 }
 
-
+const int N = 10000;
 void solve(){
     //Why it has to be me
-    int n;
-    cin >> n;
-   	int ans = 1;
-    for(int i = 0 ; i < n ; i++){
-    	ans = ans * 2;
-    	ans %= M;
-    }
-    cout << ans << endl;
+	ll n;
+	cin >> n;
+	ll zeros = 0;
+	for(ll i = 5 ; n / i >= 1 ; i *= 5){
+		zeros += n/i;
+	}
+
+	cout << zeros << endl;
 }
 
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);cout.tie(0);
-    init_code();
+   // init_code();
 
     int t = 1;
     //cin >> t;

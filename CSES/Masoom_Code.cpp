@@ -76,17 +76,31 @@ void use_this_for_prime_generator(){
     }
 }
 
+int tabulation(int n){
+    int prev2 = 0;
+    int prev = 1;
+    for(int i = 2 ; i < n + 1; i++){
+        int curi = prev + prev2;
+        prev2 = prev;
+        prev = curi;
+    }
+    cout << prev << endl;
+}
+
+int fib(int n , vector<int>& dp){
+    if(n <= 1) return n;
+
+    if(dp[n] != -1) return dp[n];
+    return dp[n] = fib(n - 1 , dp) + fib(n - 2 , dp);
+}
 
 void solve(){
     //Why it has to be me
     int n;
     cin >> n;
-   	int ans = 1;
-    for(int i = 0 ; i < n ; i++){
-    	ans = ans * 2;
-    	ans %= M;
-    }
-    cout << ans << endl;
+    vector<int> dp(n + 1 , -1);
+    cout << fib(n , dp) << endl;
+    cout << tabulation(n) << endl;
 }
 
 int main(){
@@ -95,9 +109,10 @@ int main(){
     init_code();
 
     int t = 1;
-    //cin >> t;
+    cin >> t;
     while(t--){
         solve();
     }
 
 }
+

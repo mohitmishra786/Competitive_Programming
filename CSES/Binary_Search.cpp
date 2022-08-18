@@ -77,16 +77,37 @@ void use_this_for_prime_generator(){
 }
 
 
+
+
+int binary_search(int arr[], int n , int l, int r, int target){
+ 
+    while(l <= r){
+        int mid = l + (r - l)/2;
+        if(arr[mid] == target){
+            return mid;
+        }
+        if(arr[mid] > target){
+            r = mid - 1;
+        }
+        else l = mid + 1;
+    }
+
+    return -1;
+    
+}
+
+
 void solve(){
     //Why it has to be me
-    int n;
-    cin >> n;
-   	int ans = 1;
+    int n, target;
+    cin >> n >> target;
+    int arr[n];
     for(int i = 0 ; i < n ; i++){
-    	ans = ans * 2;
-    	ans %= M;
+        cin >> arr[i];
     }
+    int ans = binary_search(arr , n , 0, n - 1, target);
     cout << ans << endl;
+
 }
 
 int main(){

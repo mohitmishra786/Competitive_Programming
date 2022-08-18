@@ -77,15 +77,40 @@ void use_this_for_prime_generator(){
 }
 
 
+int helper(int n , vector<int>& arr, int k){
+    int prev1 = 0;
+    int prev2 = 0;
+
+    int ans = 0;
+
+
+    for(int i = 1 ; i < n ; i++){
+        int min_step = INT_MAX;
+        for(int j = 1 ; j <= k ; j++){
+            if(i - j >= 0){
+                int jump = prev1 + abs(arr[i] - arr[i - j]);
+                min_step = min(min_step , jump);
+            }
+        }
+        ans = min_step;
+        prev2 = prev1;
+        prev1 = ans;
+    }
+
+    return prev1;
+}
+
 void solve(){
     //Why it has to be me
-    int n;
-    cin >> n;
-   	int ans = 1;
+    int n , k ;
+    cin >> n >> k;
+    vector<int> arr(n);
     for(int i = 0 ; i < n ; i++){
-    	ans = ans * 2;
-    	ans %= M;
+        cin >> arr[i];
     }
+ //   vector<int> dp(n , -1);
+
+    int ans = helper(n, arr , k);
     cout << ans << endl;
 }
 
@@ -95,7 +120,7 @@ int main(){
     init_code();
 
     int t = 1;
-    //cin >> t;
+   // cin >> t;
     while(t--){
         solve();
     }
