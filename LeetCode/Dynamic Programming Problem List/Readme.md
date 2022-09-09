@@ -60,13 +60,12 @@ These are few of the dp patterns along with problems of that particular pattern.
 
 **0/1 Knapsack:**
 
-- Subset Sum
-- Equal Sum Partition
-- Count of subset with given sum
-- Minimum subset sum difference
-- Target Sum
-- No of susbet with given difference
-- Count of subsets with given difference
+- [Subset Sum Equal to K](https://www.codingninjas.com/codestudio/problems/subset-sum-equal-to-k_1550954?leftPanelTab=0)
+- [Equal Sum Partition](https://leetcode.com/problems/partition-equal-subset-sum/submissions/)
+- [Count of subset with given sum](https://www.codingninjas.com/codestudio/problems/number-of-subsets_3952532)
+- [Minimum subset sum difference](https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/)
+- [Target Sum](https://leetcode.com/problems/target-sum/)
+- [Count of subsets with given difference](https://www.codingninjas.com/codestudio/problems/partitions-with-given-difference_3751628)
 - Last Stone Weight 2(LC 1049)Fibonacci Numbers:
 
 **Fibonacci numbers:**
