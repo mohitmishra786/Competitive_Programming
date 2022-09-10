@@ -63,7 +63,8 @@ These are few of the dp patterns along with problems of that particular pattern.
 - [Subset Sum Equal to K](https://www.codingninjas.com/codestudio/problems/subset-sum-equal-to-k_1550954?leftPanelTab=0)
 - [Equal Sum Partition](https://leetcode.com/problems/partition-equal-subset-sum/submissions/)
 - [Count of subset with given sum](https://www.codingninjas.com/codestudio/problems/number-of-subsets_3952532)
-- [Minimum subset sum difference](https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/)
+- [Minimum subset sum difference(Contains Negative Values Too)](https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/)
+- [Minimum subset difference(Non-Negative Values Only)](https://www.codingninjas.com/codestudio/problems/partition-a-set-into-two-subsets-such-that-the-difference-of-subset-sums-is-minimum_842494)
 - [Target Sum](https://leetcode.com/problems/target-sum/)
 - [Count of subsets with given difference](https://www.codingninjas.com/codestudio/problems/partitions-with-given-difference_3751628)
 - Last Stone Weight 2(LC 1049)Fibonacci Numbers:
