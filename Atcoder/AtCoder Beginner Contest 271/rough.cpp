@@ -23,19 +23,26 @@ const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
 
-
+void bin_trans(int n){
+    int i = 0;
+    int bin[32];
+    
+    while(n > 0){
+        bin[i] = n % 2;
+        n /= 2;
+        i++;
+    }
+    
+    for(int j = i - 1 ; j >=0 ; j--){
+        cout << bin[j];
+    }
+}
 
 void solve() {
     int n;
     cin >> n;
+    bin_trans(n);
     
-    int a = n/16 , b = n % 16;
-    
-    if(a <= 9) cout << a;
-    else cout << (char)('A' + (a - 10));
-    
-    if(b <= 9) cout << b;
-    else cout << (char)('A' + (b - 10));
 }
 
 int main() {
