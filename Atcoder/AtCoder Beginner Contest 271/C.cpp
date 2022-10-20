@@ -4,28 +4,28 @@ using namespace std;
 void solve(){
 	int n;
 	cin >> n;
-	
-	vector<int> arr(n);
 	vector<bool> vol(n + 2 , false);
+	vector<int> arr(n);	
 	int sold = 0;
-	for(int i = 0 ; i < n ; i++){
+	for (int i = 0; i < n; ++i)
+	{
+		/* code */
 		cin >> arr[i];
 		if(arr[i] >= vol.size()) sold++;
 		else if(vol[arr[i]]) sold++;
-		else vol[arr[i]] = true; 
+		else vol[arr[i]] = true;
 	}
 	
-	int l = 1, r = n + 1;
+	int l = 1 , r = n + 1;
 	while(true){
 		while(vol[l]) l++;
-		while(r != 0 && !vol[r]) r--;
+		while(!vol[r] && r != 0) r--;
 		
 		if(sold >= 2){
 			sold -= 2;
 			vol[l] = true;
 		}
 		
-		// if sold is odd
 		else{
 			if(l >= r) break;
 			vol[r] = false;
@@ -44,3 +44,5 @@ int main() {
     }
      
 }    
+
+   
