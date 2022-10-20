@@ -24,3 +24,22 @@ public:
 };
 
 
+
+// Solution using Hashmap
+// TC is O(n) & SC is O(n)
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int , int> mp;
+        int n = nums.size();
+        for(int i = 0 ; i < n ; i++){
+            int b = nums[i] , a = target - b;
+            if(mp.count(a)) return {mp[a] , i};
+            mp[b] = i;
+        }
+        
+        return {};
+    }
+};
+
