@@ -67,3 +67,6 @@
 6. https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/
 
 
+## Day - 7
+
+1. https://leetcode.com/problems/maximum-number-of-words-found-in-sentences/description/
