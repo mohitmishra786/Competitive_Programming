@@ -1,26 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-int countPairs(vector<int> a, vector<int> b, int n, int m) {
-    if (n == 0 || m == 0) {
-        return 0;
-    }
-    unordered_map<int, int> countA, countB;
-    for (int i = 0; i < n; i++) {
-        countA[a[i]]++;
-    }
-    for (int j = 0; j < m; j++) {
-        countB[b[j]]++;
-    }
-    int count = 0;
-    for (auto it : countA) {
-        if (countB.find(it.first) != countB.end()) {
-            count += it.second * countB[it.first];
-        }
-    }
-    return count;
+ 
+int newCountPairs(vector<int> a, vector<int> b, int n, int m){
+	int i =0, j = 0;
+	int res = 0;
+	while(j < m && i < n){
+		int factor = 0, target = b[j];
+		
+		while(b[j] == target && j < m){
+			j++;
+			factor++;
+		}
+		
+		while(a[i] < target && i < n){
+			i++;
+		}
+		
+		int cnt = 0;
+		while(a[i] == target && i < n){
+			i++;
+			cnt++;
+		}
+		
+		res += factor * cnt;
+	}
+	return res;
 }
-
+ 
 void solve(){
 	int n , m;
 	cin >> n >> m;
@@ -34,10 +40,10 @@ void solve(){
 		cin >> b[j];
 	}
 	
-	int sum = countPairs(a, b , n , m);
+	int sum = newCountPairs(a, b , n , m);
 	cout << sum << endl;
 }
-
+ 
 int main(){
 	solve();
 }	
