@@ -25,3 +25,30 @@ public:
         return ans;
     }
 };
+
+
+/*
+    Another way of Solving the same question
+*/
+
+
+class Solution {
+public:
+    void solve(vector<int> &candidates, int target, vector<vector<int>> &ans, vector<int> &sol, int start){
+        if(target == 0){
+            ans.push_back(sol);
+        }
+        if(target < 0) return;
+        for(int i = start; i < candidates.size(); i++){
+            sol.push_back(candidates[i]);
+            solve(candidates, target - candidates[i], ans, sol, i);
+            sol.pop_back();
+        }
+    }
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<vector<int>> ans;
+        vector<int> sol;
+        solve(candidates, target, ans, sol, 0);
+        return ans;
+    }
+};
