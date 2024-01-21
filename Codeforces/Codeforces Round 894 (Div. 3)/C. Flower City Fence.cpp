@@ -32,37 +32,38 @@ const int M = 1000000007;
 /* CODE STARTS HERE */
 
 void solve(){
-	int n, m;
-	cin >> n >> m;
-	vector<vector<char>> v(n, vector<char> (m));
+	int n;
+	cin >> n;
+	vector<int> v(n);
+	vector<int> count(n + 1, 0);
 	for(int i = 0 ; i < n; i++){
-		for(int j = 0; j < m; j++){
-			cin >> v[i][j];
-		}
+		cin >> v[i];
+		count[v[i]]++;
 	}
-	
-	queue<char> q;
-	q.push('v');
-	q.push('i');
-	q.push('k');
-	q.push('a');
-	
-	for(int i = 0 ; i < m; i++){
-		for(int j = 0; j < n; j++){
-			if(q.empty()) break;
-			if(v[j][i] == q.front()){
-				q.pop();
-				break;
-			}
-		}
+	if(v[0] != n){
+		cout << "NO" << endl;
 	}
-	
-	if(q.empty()) cout << "YES" << endl;
-	else cout << "NO" << endl;
+	else{;
+		vector<int> ans(n + 1, 0);
+		ans[n] = count[n];
+		for(int i = n - 1; i >= 0; i--){
+			ans[i] = count[i] + ans[i + 1];
+		}
+		
+		for(int i = 0; i < n; i++){
+		    if(v[i] != ans[i + 1]){
+		        cout << "NO" << endl;
+		        return;
+		    }
+		}
+		
+		cout << "YES" << endl;
+	}
 }
 
 int main(){
-	int t; cin >> t;
+	int t;
+	cin >> t;
 	while(t--){
 		solve();
 	}

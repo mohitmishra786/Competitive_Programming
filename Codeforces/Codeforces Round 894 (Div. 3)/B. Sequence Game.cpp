@@ -35,42 +35,28 @@ void solve(){
 	int n;
 	cin >> n;
 	vector<int> v(n);
-	vector<int> ans;
-	bool p = true;
-	for(int i = 0 ; i < n; i++){
+	for(int i = 0; i < n; i++){
 		cin >> v[i];
-		if(i > 0 && abs(v[i] - v[i - 1]) != 1){
-			p = false;
-		}
 	}
 	
-	if(p == true){
-	    //cout << "mohit" << endl;
-		cout << n << endl;
-		for(auto x : v){
-			cout << x << " ";
-		}
-		cout << endl;
-	}
-	else{
-		ans.push_back(v[0]);
-		for(int i = 1; i < n; i++){
-			ans.push_back(v[i] - 1);
+	vector<int> ans = {v[0]};
+	
+	for(int i = 1 ; i < n; i++){
+		if(v[i] < v[i - 1]){
+			ans.push_back(1);
 			ans.push_back(v[i]);
 		}
-		
-		cout << ans.size() << endl;
-		for(auto x : ans){
-			cout << x << " ";
+		else{
+			ans.push_back(v[i]);
 		}
-		cout << endl;
 	}
 	
+	cout << ans.size() << endl;
+	vout(ans);
 }
 
 int main(){
-	int t;
-	cin >> t;
+	int t; cin >> t;
 	while(t--){
 		solve();
 	}
