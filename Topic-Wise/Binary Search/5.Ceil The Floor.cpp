@@ -1,4 +1,4 @@
-// https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbm9kZDlVMUhxWVhhZU01bEFQOU5ZNWFSZmNmZ3xBQ3Jtc0tubnViN0UwUUhibGtUYUVkc3llT3JDM3g0SjBfSnBxWS1QQ191cllsTWZjeWV1elc3cVhZemRpQjJfeE8tQjEwUDJqQlFLTGRqR0Rfdmw4b203UUhXUkFDZTllS3c3STY2QWswMlRpSmJYa3Zra2lEdw&q=https%3A%2F%2Fwww.codingninjas.com%2Fcodestudio%2Fproblems%2Fceiling-in-a-sorted-array_1825401&v=6zhGS79oQ4k
+// Question Link:- https://www.codingninjas.com/studio/problems/ceiling-in-a-sorted-array_1825401
 
 pair<int, int> getFloorAndCeil(vector<int> &a, int n, int x) {
 	// Write your code here.
