@@ -12,3 +12,11 @@ int lowerBound(vector<int> arr, int n, int x) {
 	}
 	return ans;
 }
+
+// Solution Using STL-Library
+
+int lowerBound(vector<int> arr, int n, int x) {
+	// Write your code here
+	int lb = lower_bound(arr.begin(), arr.end(), x) - arr.begin();
+	return lb;
+}
