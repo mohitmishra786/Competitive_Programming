@@ -1,6 +1,24 @@
 //  Question Link:- https://bit.ly/3Mdw2FX
 
+// Solution without Binary Search
+// This gives TLE
+// Time Complexity:- O(n)
+pair<int, int> firstAndLastPosition(vector<int>& arr, int n, int k)
+{
+    // Write your code here
+    int first = -1, last = -1;
+    for(int i = 0 ; i < n; i++){
+        if(arr[i] == k){
+            if(first == -1) first = i;
+            last = i;
+        }
+    }
+    return {first, last};
+}
+
+
 // LB and UB Solution
+// Time Complexity:- Olog(n)
 pair<int, int> firstAndLastPosition(vector<int>& arr, int n, int x)
 {
     // Write your code here
@@ -32,6 +50,7 @@ pair<int, int> firstAndLastPosition(vector<int>& arr, int n, int x)
 
 
 // LB and While Loop Solution
+// Time Complexity:- Olog(n)
 pair<int, int> firstAndLastPosition(vector<int>& arr, int n, int x)
 {
     // Write your code here
