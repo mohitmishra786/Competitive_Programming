@@ -1,4 +1,5 @@
 // Question Link:- https://bit.ly/3IoKGce
+// Time Complexity:- Olog(n)
 
 int upperBound(vector<int> &arr, int x, int n){
 	// Write your code here.
