@@ -1,5 +1,5 @@
 // Question Link:- https://www.codingninjas.com/studio/problems/ceiling-in-a-sorted-array_1825401
-
+// Time Complexity:- Olog(n)
 pair<int, int> getFloorAndCeil(vector<int> &a, int n, int x) {
 	// Write your code here.
 	
