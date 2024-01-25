@@ -1,4 +1,5 @@
 // Question Link:- https://bit.ly/43967G5
+// Time Complexity:- Olog(n)
 
 int lowerBound(vector<int> arr, int n, int x) {
 	// Write your code here
