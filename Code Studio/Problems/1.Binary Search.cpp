@@ -1,4 +1,5 @@
 // Problem Link - https://bit.ly/41Tk8ql
+// Time Complexity:- Olog(n)
 
 // Iterative Solution
 
