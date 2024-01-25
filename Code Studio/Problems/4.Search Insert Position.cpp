@@ -1,6 +1,6 @@
 // It will be same as Lower Bound
 // Question Link:- https://bit.ly/3ocI0HW 
-
+// Time Complexity:- Olog(n)
 int searchInsert(vector<int>& arr, int m)
 {
 	// Write your code here.
