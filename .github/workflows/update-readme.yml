@@ -1,0 +1,27 @@
+name: Update README
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # This runs every hour
+  workflow_dispatch:  # This allows manual triggering
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Update README
+      run: |
+        # Read current count
+        count=$(grep "Count = " README.md | awk '{print $3}')
+        # Increment count
+        new_count=$((count + 1))
+        # Update README
+        sed -i "s/Count = .*/Count = $new_count/" README.md
+    - name: Commit and push if changed
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+        git add -A
+        git commit -m "Update count in README" || exit 0
+        git push
